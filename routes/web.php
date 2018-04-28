@@ -69,3 +69,14 @@ Route::get('search',[
     'as'=>'search',
     'uses'=>'PageController@getSearch'
 ]);
+
+Route::get('thongtin/{ten}/{sdt?}',function ($ho,$sdt="2332"){
+    echo "Toi ten la ".$ho." so dien thoai: ".$sdt;
+})->where(['ten'=>'[a-zA-Z]+','sdt'=>'[0-9]']);
+
+Route::get('database/model',function (){
+    $data=App\Slide::where('id',"=",1)->get()->toArray();
+    echo "<pre>";
+    print_r($data);
+    echo"</pre";
+});
